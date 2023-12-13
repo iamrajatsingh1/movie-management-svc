@@ -11,7 +11,7 @@ const getAsync = util.promisify(redisClient.get).bind(redisClient);
 const cache = cacheManager.caching({
     store: 'memory', // Use 'memory' for local caching
     max: 100,        // Maximum number of items in the cache
-    ttl: 60          // Time-to-live in seconds
+    ttl: 60 * 60 * 24 // Time-to-live in seconds (1 day)
 });
 
 module.exports = { redisClient, cache, getAsync };

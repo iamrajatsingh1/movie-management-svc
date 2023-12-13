@@ -4,9 +4,25 @@ const Movie = require('../models/movies');
 const { cache } = require('../database/redis');
 
 // Create
+/**
+ * Create Movie 
+ */
 router.post('/', async (req, res) => {
   try {
-    const movie = new Movie(req.body);
+    const body = req.body;
+    const sanitizedBody = {
+      title: body.title,
+      genre: body.genre,
+      year: body.year
+    };
+    if (!sanitizedBody.title || !sanitizedBody.genre) {
+      res.status(400).json({
+        error_code: "BAD_REQUEST",
+        error: "title or genre is missing!"
+      });
+    }
+
+    const movie = new Movie(sanitizedBody);
     await movie.save();
 
     // Clear cache
