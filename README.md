@@ -28,25 +28,24 @@ Before you begin, ensure you have the following installed:
     ```bash
     npm install
 4. Create a .env file in the root directory and configure your environment variables:
-```
-PORT=3001
-REDIS_URI=redis://localhost:6379
-MONGO_URI=mongodb://localhost/movieDB
-API_KEY=12342atsdyau
-```
+    ```bash
+    PORT=3001
+    REDIS_URI=redis://localhost:6379
+    MONGO_URI=mongodb://localhost/movieDB
+    API_KEY=12342atsdyau
+    ```
 
 5. Start the server:
-
-```npm start
-```
+    ```bash
+    npm start
+    ```
 6. Usage
-Access the service at http://localhost:3001.
-
-Explore the CRUD APIs for managing movie records.
+    Access the service at http://localhost:3001.
+    Explore the CRUD APIs for managing movie records.
 
 
 ### API Endpoints
-Create Movie: POST /movies
-Read Movies: GET /movies
-Update Movie: PATCH /movies/:id
-Delete Movie: DELETE /movies/:id
+    Create Movie: POST /movies
+    Read Movies: GET /movies
+    Update Movie: PATCH /movies/:id
+    Delete Movie: DELETE /movies/:id
