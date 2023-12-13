@@ -1,6 +1,7 @@
 const express = require('express');
 require('dotenv').config();
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const moviesRouter = require('./src/routes/movies');
 const connectToDatabase = require('./src/database/mongoose');
 const authenticateRequest = require('./src/middleware/authMiddleware');
@@ -11,6 +12,13 @@ connectToDatabase();
 
 const app = express();
 
+// Enable CORS for a specific origin
+const corsOptions = {
+    origin: 'https://movie-management-dashboard.com', //example FE url
+    optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 // Use the authentication middleware
