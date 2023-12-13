@@ -3,7 +3,7 @@ const util = require('util');
 const cacheManager = require('cache-manager');
 
 // Create a Redis client
-const redisUri = process.env.REDIS_URI || 'redis://localhost:6379';
+const redisUri = process.env.REDIS_URI;
 const redisClient = redis.createClient(redisUri);
 const getAsync = util.promisify(redisClient.get).bind(redisClient);
 
